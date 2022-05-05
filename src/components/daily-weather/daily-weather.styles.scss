@@ -1,0 +1,37 @@
+.dailyWeather {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  color: white;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  z-index: 99;
+  .weatherDetail {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .city {
+    font-size: 32px;
+  }
+  .date {
+    font-size: 14px;
+    color: silver;
+  }
+  .climate {
+  }
+  .cloud-icon {
+    width: 50px;
+  }
+  .weatherDeg {
+    text-align: right;
+  }
+  .deg {
+    font-size: 105px;
+    font-weight: lighter;
+  }
+  .subDeg {
+    font-size: 32px;
+  }
+}

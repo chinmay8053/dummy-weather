@@ -1,0 +1,61 @@
+.weekWeather {
+  width: 100%;
+  padding: 10px;
+  color: white;
+  z-index: 99;
+  text-align: center;
+
+  .weekbar {
+    display: flex;
+    justify-content: space-between;
+    color: silver;
+  }
+  .hr {
+    border-color: silver;
+    margin: 5px;
+    margin-bottom: 15px;
+    width: 105%;
+    transform: translateX(-2.5%);
+  }
+  .daily {
+    // color: grey;
+  }
+  .menu-icon {
+  }
+  .weekMenu {
+  }
+  .reports {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 30px;
+  }
+  .weather {
+    cursor: pointer;
+    min-width: 110px;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.179);
+    border-radius: 10px;
+  }
+  .weather:hover {
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.236);
+    transform: scale(1.02);
+  }
+  .weekName {
+    color: #fff;
+  }
+  .image {
+    color: #ddd;
+  }
+  .deg {
+    color: #fff;
+  }
+  .cloud-icon {
+    display: inline;
+    width: 40px;
+    margin: 0 auto;
+  }
+}
