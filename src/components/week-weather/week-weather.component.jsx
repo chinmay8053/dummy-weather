@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import date from "date-and-time";
 import clear from "../../images/clear.svg";
 import cloudy from "../../images/cloudy.svg";
@@ -20,21 +20,23 @@ const dayChecker = (infoDate) => {
 };
 
 function WeekWeather({ setDate }) {
+  let newDate = useRef(null);
   const [weekInfo, setWeekInfo] = useState(null);
-  let newDate = (new Date().getTime() / 1000).toString().split(".")[0];
+  newDate.current = (new Date().getTime() / 1000).toString().split(".")[0];
   const weeks = [];
 
   useEffect(() => {
     const detailsFn = async () => {
       for (let i = 0; i < 5; i++) {
-        const detail = await oneTimeWeather(newDate);
-        newDate = newDate - 86400;
+        const detail = await oneTimeWeather(newDate.current);
+        newDate.current = newDate.current - 86400;
         weeks.push(detail);
       }
       setWeekInfo(weeks);
     };
     detailsFn();
   }, []);
+
   console.log(weekInfo);
 
   if (weekInfo === null) {
@@ -42,10 +44,7 @@ function WeekWeather({ setDate }) {
   }
   return (
     <div className="weekWeather">
-      <div className="weekbar">
-        <div className="daily">Daily</div>
-        <div className="menu-icon">...</div>
-      </div>
+      <div className="weekbar"></div>
       <hr className="hr" />
       <div className="weekMenu">
         <div className="reports">
@@ -77,4 +76,4 @@ function WeekWeather({ setDate }) {
   );
 }
 
-export default WeekWeather;
+export default React.memo(WeekWeather);
